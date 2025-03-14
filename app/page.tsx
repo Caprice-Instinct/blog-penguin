@@ -3,6 +3,9 @@ import { prisma } from "./utils/db";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
+// Revalidate CDN every 60 seconds
+export const revalidate = 60;
+
 async function getData() {
   await new Promise((resolve) => setTimeout(resolve, 2000));
   const data = await prisma.blogPost.findMany({
