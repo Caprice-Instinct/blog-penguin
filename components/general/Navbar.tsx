@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { buttonVariants } from "../ui/button";
@@ -12,6 +12,7 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 export function Navbar() {
   const { getUser } = useKindeBrowserClient();
   const user = getUser();
+
   return (
     <nav className="py-5 flex items-center justify-between">
       <div className="flex items-center gap-6">
@@ -35,7 +36,9 @@ export function Navbar() {
       {user ? (
         <div className="flex items-center gap-4">
           <p>{user.given_name}</p>
-          <LogoutLink className={buttonVariants({variant: "secondary"})}>Logout</LogoutLink>
+          <LogoutLink className={buttonVariants({ variant: "secondary" })}>
+            Logout
+          </LogoutLink>
         </div>
       ) : (
         <div className="flex items-center gap-4">
